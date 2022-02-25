@@ -1,0 +1,63 @@
+/* General */
+.header {
+  padding: 0.8rem 0.5rem;
+}
+.logo {
+  height: 37px;
+  width: auto;
+}
+.left,
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* For big screen */
+@media (min-width: 1025px) {
+  .smallscreen {
+    display: none;
+  }
+  .bigscreen,
+  .bigscreen ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .bigscreen ul > li {
+    font-weight: 700;
+    padding: 0 0.5rem;
+    color: var(--lightgrey);
+  }
+  .bigscreen ul > li:hover {
+    color: var(--darkgreyNav);
+    cursor: pointer;
+  }
+  .right + button {
+    border: 1px solid red;
+  }
+}
+
+/* For small screen */
+@media (max-width: 1024px) {
+  .bigscreen {
+    display: none;
+  }
+  .smallscreen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .fa-bars {
+    font-size: 24px;
+    color: var(--lightgrey);
+    margin-right: 16px;
+  }
+  .fa-magnifying-glass {
+    font-size: 24px;
+    margin-right: 12px;
+  }
+  button {
+    padding: 0.25rem 0.5rem;
+  }
+}
