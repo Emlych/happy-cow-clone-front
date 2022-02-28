@@ -1,0 +1,23 @@
+.collapse-nav {
+  background-color: var(--violet);
+  color: white;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  overflow-y: scroll;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.collapse-nav > ul > li {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px dashed white;
+  font-weight: 600;
+}
+.collapse-nav > ul > li:hover {
+  cursor: pointer;
+}
+.collapse-nav > button {
+  margin: 20px auto;
+  padding: 11px 20px;
+}

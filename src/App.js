@@ -1,24 +1,32 @@
 import "./App.css";
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //import pages
-import Header from "./Pages/header/Header";
 import Home from "./Pages/Home";
+import Review from "./Pages/Review";
 import Profile from "./Pages/Profile";
 
-//import modal
-import Modal from "./Components/Modal";
+//import components
+import Header from "./Components/header/Header";
+import Modal from "./Components/modal/Modal";
+
+//import data
+// import restaurantData from "../assets/data/restaurants.json";
 
 function App() {
+  const [isModal, setIsModal] = useState(false);
+  const toggleModal = () => {
+    setIsModal(!isModal);
+  };
   return (
     <div className="app">
       <Router>
-        <Header />
-        <Modal />
+        <Header toggleModal={toggleModal} />
+        {isModal ? <Modal toggleModal={toggleModal} /> : null}
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* Fiche restaurant -- :id à redéfinir au besoin */}
-          <Route path="/reviews/:id" element={<Home />} />
+          <Route path="/reviews/:index" element={<Review />} />
           <Route path="/members/profile" element={<Profile />} />
         </Routes>
       </Router>

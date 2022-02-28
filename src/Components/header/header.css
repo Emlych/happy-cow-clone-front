@@ -1,7 +1,4 @@
 /* General */
-.header {
-  padding: 0.8rem 0.5rem;
-}
 .logo {
   height: 37px;
   width: auto;
@@ -17,6 +14,9 @@
 @media (min-width: 1025px) {
   .smallscreen {
     display: none;
+  }
+  .bigscreen {
+    padding: 0.8rem 0.5rem;
   }
   .bigscreen,
   .bigscreen ul {
@@ -43,15 +43,16 @@
   .bigscreen {
     display: none;
   }
-  .smallscreen {
+  .topbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.8rem 0.5rem;
   }
-  .fa-bars {
+  .fa-bars,
+  .fa-xmark {
     font-size: 24px;
     color: var(--lightgrey);
-    margin-right: 16px;
   }
   .fa-magnifying-glass {
     font-size: 24px;
@@ -59,5 +60,9 @@
   }
   button {
     padding: 0.25rem 0.5rem;
+  }
+  .no-btn {
+    background: none;
+    width: 45px;
   }
 }

@@ -1,0 +1,53 @@
+.homecard {
+  margin: 0 0.75rem;
+  flex: 1;
+  width: 1050px;
+  background-color: red;
+}
+
+.card__thumbnail {
+  object-fit: cover;
+  border-radius: 10px;
+  max-width: 100%;
+  height: 20rem;
+}
+.card__name {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.tag {
+  width: 2rem;
+  margin-right: 4px;
+}
+.card__name--title {
+  line-height: 1.5em;
+  font-weight: 700;
+  font-size: 1.25rem;
+  transition-duration: 200ms;
+  color: var(--green);
+}
+.card__name--title:hover {
+  color: var(--hovergreen);
+  cursor: pointer;
+}
+.card__address {
+  color: var(--lightgrey);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.card__ratings {
+  color: var(--yellow);
+  font-weight: 700;
+  font-size: 1.35rem;
+}
+.card__description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  line-height: 1.5em;
+  margin-top: 0.5rem;
+  font-size: 18px;
+}
