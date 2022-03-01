@@ -1,0 +1,75 @@
+/* Same style for both media queries */
+.banner {
+  background-color: var(--green);
+  padding: 15px 25px;
+  display: flex;
+}
+h1 {
+  color: white;
+  font-size: 44px;
+}
+.banner__left--container {
+  display: flex;
+  align-items: center;
+}
+.banner__left--container button {
+  padding: 3px 8px 0;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.card__ratings {
+  display: flex;
+  flex-direction: row;
+}
+.card__ratings > div {
+  margin-left: 5px;
+}
+
+@media (min-width: 1024px) {
+  .banner {
+    justify-content: space-between;
+  }
+
+  .banner__right--bigscreen {
+    display: flex;
+  }
+  .banner__right--bigscreen > button {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--green);
+    color: white;
+    font-size: 18px;
+  }
+  .banner__right--bigscreen .icon {
+    background-color: white;
+    padding: 15px 18px 18px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: var(--violet);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .banner__right--bigscreen {
+    display: none;
+  }
+  .banner,
+  .banner__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .banner__left {
+    padding: 0 20px;
+  }
+  .banner__left h1 {
+    text-align: center;
+  }
+}

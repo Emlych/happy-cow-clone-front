@@ -58,7 +58,6 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-bottom: 50px;
   }
   .homesection__smallscreen .homesection__link span {
     padding-right: 12px;
