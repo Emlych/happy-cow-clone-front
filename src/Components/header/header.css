@@ -15,21 +15,21 @@
   .smallscreen {
     display: none;
   }
-  .bigscreen {
+  .header .bigscreen {
     padding: 0.8rem 0.5rem;
   }
-  .bigscreen,
-  .bigscreen ul {
+  .header .bigscreen,
+  .header .bigscreen ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .bigscreen ul > li {
+  .header .bigscreen ul > li {
     font-weight: 700;
     padding: 0 0.5rem;
     color: var(--lightgrey);
   }
-  .bigscreen ul > li:hover {
+  .header .bigscreen ul > li:hover {
     color: var(--darkgreyNav);
     cursor: pointer;
   }
@@ -40,7 +40,7 @@
 
 /* For small screen */
 @media (max-width: 1024px) {
-  .bigscreen {
+  .header .bigscreen {
     display: none;
   }
   .topbar {

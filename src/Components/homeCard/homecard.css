@@ -1,16 +1,53 @@
 .homecard {
-  margin: 0 0.75rem;
-  flex: 1;
-  width: 1050px;
-  background-color: red;
+  margin: 0 1.2rem;
+  width: 360px;
+  flex-shrink: 0;
+}
+
+.homecard > div:first-of-type {
+  position: relative;
 }
 
 .card__thumbnail {
   object-fit: cover;
   border-radius: 10px;
-  max-width: 100%;
+  width: 360px;
   height: 20rem;
 }
+.homecard .card__icon > div:first-of-type {
+  background-color: var(--redlike);
+  color: white;
+  border: 3px solid white;
+  position: absolute;
+  top: 0;
+  left: -22px;
+  padding: 8px 11px;
+  border-radius: 50%;
+  font-size: 16px;
+  z-index: 50;
+}
+.homecard .card__icon > div:nth-child(2) {
+  color: var(--redlike);
+
+  position: absolute;
+  top: 25px;
+  left: -22px;
+  padding: 8px 11px;
+  font-size: 30px;
+  z-index: 49;
+}
+.homecard .card__icon > div:last-child {
+  background-color: white;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 15px 20px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: var(--redlike);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 .card__name {
   display: flex;
   justify-content: flex-start;

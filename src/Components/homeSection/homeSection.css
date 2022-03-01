@@ -1,0 +1,67 @@
+/* Common to the 2 media queries */
+.homesection__smallscreen,
+.homesection__bigscreen {
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+}
+.homesection__smallscreen h2,
+.homesection__bigscreen h2 {
+  font-size: 30px;
+}
+.homesection__link {
+  font-weight: 700;
+  color: var(--violet);
+  margin-top: 10px;
+}
+.homesection__link span {
+  padding-right: 12px;
+  font-size: 20px;
+}
+.caroussel {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+}
+/* 2 distinct media queries */
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1280px) {
+  .homesection__smallscreen {
+    display: none;
+  }
+  .homesection__bigscreen .homesection__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 20px 0;
+  }
+}
+
+/* 
+  ##Device = Desktops, Laptops, Tablets, Mobiles
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (max-width: 1280px) {
+  .homesection__bigscreen {
+    display: none;
+  }
+  /* First block */
+  .homesection__smallscreen h2 {
+    margin: 20px auto;
+    text-align: center;
+  }
+  /* Last block */
+  .homesection__smallscreen .homesection__link {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  .homesection__smallscreen .homesection__link span {
+    padding-right: 12px;
+    font-size: 20px;
+  }
+}
