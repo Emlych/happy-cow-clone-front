@@ -39,9 +39,12 @@ const Login = ({
           onChange={(event) => setPassword(event.target.value)}
         />
       </div>
-      <div>
-        <input type="checkbox" name="" id="" />
-        <label htmlFor="checkbox">Remember me</label>
+      <div className="checkbox">
+        <div>
+          <input type="checkbox" name="" id="" />
+          <label htmlFor="checkbox">Remember me</label>
+        </div>
+
         <p>Forgot Password?</p>
       </div>
 

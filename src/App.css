@@ -39,6 +39,11 @@ button:hover,
   display: flex;
   align-items: center;
 }
+.space-between-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 /* home page */
 .caroussel {

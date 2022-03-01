@@ -56,22 +56,24 @@
 }
 
 .modal__text {
-  padding: 3rem;
+  padding: 3.4rem;
 }
-.modal__text nav ul li {
+.modal__text nav button {
   padding: 0.75rem 0;
   line-height: 1.5em;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 28px;
   margin-right: 24px;
+  margin-bottom: 15px;
+  background-color: #fff;
 }
-.modal__text nav ul li:hover {
-  cursor: pointer;
-}
-.modal__text nav ul li:active {
+
+.modal__text nav .active-btn {
   color: var(--violet);
-  border-bottom: 5px solid var(--violet);
+  text-decoration: underline;
+  text-underline-offset: 15px;
 }
+
 .modal__network {
   display: flex;
   justify-content: center;
@@ -93,7 +95,6 @@
   font-weight: 700;
   position: relative;
   height: 30px;
-
   margin-top: 20px;
 }
 .modal__separation span {
@@ -109,6 +110,8 @@
   width: 100%;
   border-bottom: 1px solid var(--lightgrey);
 }
+
+/* Modal form (signup and login components) */
 .modal form {
   display: flex;
   flex-direction: column;
@@ -158,4 +161,18 @@
 }
 .icon-eye:hover {
   cursor: pointer;
+}
+.modal .checkbox {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.modal .checkbox label {
+  margin-left: 10px;
+  font-weight: 400;
+  font-size: 15px;
+}
+.modal .checkbox p {
+  color: var(--lightgrey);
+  font-size: 13px;
 }

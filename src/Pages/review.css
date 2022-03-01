@@ -12,11 +12,11 @@ h1 {
   display: flex;
 }
 .review__left {
-  flex: 2;
+  width: 70%;
   background-color: red;
 }
 .review__right {
-  flex: 1;
+  width: 30%;
   background-color: blue;
 }
 .review--address {
@@ -24,6 +24,29 @@ h1 {
 }
 .review--address span {
   font-weight: 800;
+}
+
+.review__caroussel {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  background-color: green;
+}
+.review__caroussel img {
+  height: 280px;
+  width: 300px;
+  object-fit: cover;
+  margin-left: 25px;
+  border-radius: 10px;
+}
+/* map */
+.map {
+  height: 40vh;
+  width: 100%;
+}
+.review__links a {
+  color: white;
+  text-decoration: none;
 }
 /* For big screen */
 @media (min-width: 1025px) {

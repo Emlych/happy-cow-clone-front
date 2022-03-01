@@ -1,8 +1,8 @@
 import "./modal.css";
 import { useState } from "react";
 import Signup from "./Signup";
+import Login from "./Login";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
 import {
   faGoogle,
   faFacebookF,
@@ -18,7 +18,11 @@ const Modal = ({ toggleModal }) => {
   const [hiddenPassword, setHiddenPassword] = useState(true);
 
   const handleSubmit = () => {
-    alert("You pressed on the submit button !");
+    if (signupModal) {
+      alert("You want to create a new account !");
+    } else {
+      alert("You want to login !");
+    }
   };
 
   return (
@@ -42,11 +46,19 @@ const Modal = ({ toggleModal }) => {
           </div>
         </div>
         <div className="modal__text">
-          <nav className="modal__type">
-            <ul className="row-flex">
-              <li>Login</li>
-              <li>Sign Up</li>
-            </ul>
+          <nav>
+            <button
+              onClick={() => setSignupModal(false)}
+              className={!signupModal ? "active-btn" : "disabled-btn"}
+            >
+              Login
+            </button>
+            <button
+              onClick={() => setSignupModal(true)}
+              className={signupModal ? "active-btn" : "disabled-btn"}
+            >
+              Sign Up
+            </button>
           </nav>
           <div className="modal__network">
             <button>
@@ -64,17 +76,29 @@ const Modal = ({ toggleModal }) => {
             <span>OR</span>
           </div>
 
-          <Signup
-            handleSubmit={handleSubmit}
-            email={email}
-            setEmail={setEmail}
-            username={username}
-            setUsername={setUsername}
-            password={password}
-            setPassword={setPassword}
-            hiddenPassword={hiddenPassword}
-            setHiddenPassword={setHiddenPassword}
-          />
+          {signupModal ? (
+            <Signup
+              handleSubmit={handleSubmit}
+              email={email}
+              setEmail={setEmail}
+              username={username}
+              setUsername={setUsername}
+              password={password}
+              setPassword={setPassword}
+              hiddenPassword={hiddenPassword}
+              setHiddenPassword={setHiddenPassword}
+            />
+          ) : (
+            <Login
+              handleSubmit={handleSubmit}
+              username={username}
+              setUsername={setUsername}
+              password={password}
+              setPassword={setPassword}
+              hiddenPassword={hiddenPassword}
+              setHiddenPassword={setHiddenPassword}
+            />
+          )}
         </div>
       </div>
     </div>

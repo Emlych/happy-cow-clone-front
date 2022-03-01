@@ -56,7 +56,9 @@ const Header = ({ toggleModal }) => {
           </div>
           <div className="right">
             <FontAwesomeIcon icon={faSearch} className="primary-opposite" />
-            <button className="primary">Login / Join</button>
+            <button className="primary" onClick={toggleModal}>
+              Login / Join
+            </button>
           </div>
         </div>
         {openBurger && (

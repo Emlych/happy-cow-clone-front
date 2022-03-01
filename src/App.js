@@ -1,3 +1,5 @@
+//RAF : ajout d'une page pour afficher les restaurants par ville
+
 import "./App.css";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -10,9 +12,6 @@ import Profile from "./Pages/Profile";
 //import components
 import Header from "./Components/header/Header";
 import Modal from "./Components/modal/Modal";
-
-//import data
-// import restaurantData from "../assets/data/restaurants.json";
 
 function App() {
   const [isModal, setIsModal] = useState(false);
