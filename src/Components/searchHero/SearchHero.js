@@ -13,6 +13,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 //autocomplete material ui package
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
+import { styled } from "@mui/material/styles";
 
 function SearchHero({ restaurantArr }) {
   //Search for restaurants and redirect to the restaurant page
@@ -26,12 +27,37 @@ function SearchHero({ restaurantArr }) {
       alert("Sorry, no results found for this restaurant.");
     }
   };
+  const StyledAutocomplete = styled(Autocomplete)({
+    "& .MuiInputLabel-outlined:not(.MuiInputLabel-shrink)": {
+      // Default transform is "translate(14px, 20px) scale(1)""
+      // This lines up the label with the initial cursor position in the input
+      // after changing its padding-left.
+      transform: "translate(34px, 20px) scale(1);",
+    },
+    "& .MuiAutocomplete-inputRoot": {
+      color: "purple",
+      // This matches the specificity of the default styles at https://github.com/mui-org/material-ui/blob/v4.11.3/packages/material-ui-lab/src/Autocomplete/Autocomplete.js#L90
+      '&[class*="MuiOutlinedInput-root"] .MuiAutocomplete-input:first-child': {
+        // Default left padding is 6px
+        paddingLeft: 26,
+      },
+      "& .MuiOutlinedInput-notchedOutline": {
+        borderColor: "green",
+      },
+      "&:hover .MuiOutlinedInput-notchedOutline": {
+        borderColor: "red",
+      },
+      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+        borderColor: "purple",
+      },
+    },
+  });
   return (
     <div className="search-hero">
       <div className="hero-container wave">
         <h2>Find Vegan Restaurants Nearby</h2>
         <form onSubmit={submitSearch}>
-          <Autocomplete
+          <StyledAutocomplete
             disablePortal
             id="combo-box-demo"
             options={restaurantArr}

@@ -4,7 +4,8 @@
 // personnaliser marqueur sur maps (rajouter ombre et pin point)
 // Exporter en composants
 
-import "dotenv/config";
+// import "dotenv/config";
+// import "dotenv-webpack";
 
 import "./review.css";
 import { useParams } from "react-router-dom";
@@ -39,7 +40,7 @@ const Review = () => {
   const description = reviewData.description;
   const schedule = description.substring(description.indexOf("Open"));
 
-  const apiKey = process.env.API_KEY;
+  const apiKey = process.env.REACT_APP_API_KEY;
   return (
     <div className="review">
       <div className="banner">
