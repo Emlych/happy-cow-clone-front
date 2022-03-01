@@ -36,8 +36,8 @@ function SearchHero({ restaurantArr }) {
   });
 
   return (
-    <div className="search-hero">
-      <div className="hero-container wave">
+    <div className="wave">
+      <div className="hero__container">
         <h2>Find Vegan Restaurants Nearby</h2>
         <form onSubmit={submitSearch} className="searchbar">
           <Autocomplete
@@ -82,7 +82,7 @@ function SearchHero({ restaurantArr }) {
           </button>
         </form>
       </div>
-      <div>Photo By Rustic Vegan</div>
+      <div className="hero__comment">Photo Not By Rustic Vegan</div>
     </div>
   );
 }

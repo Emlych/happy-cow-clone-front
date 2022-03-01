@@ -1,22 +1,54 @@
-.search-hero img {
+/* No media queries distinction */
+.wave {
+  background-image: url("https://res.cloudinary.com/deby3jois/image/upload/v1642599098/cld-sample.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 240px;
   width: 100%;
-  height: 250px;
-  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.hero-container {
+.hero__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 }
+
+/* Inside hero */
+.hero__container h2 {
+  font-size: 2.25rem;
+  color: white;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.85);
+  line-height: 2.5rem;
+  text-align: center;
+  margin: 1.25rem 0;
+}
+.hero__comment {
+  text-align: end;
+  font-weight: 700;
+  color: var(--lightgrey);
+  padding-right: 2.5%;
+  margin-top: 10px;
+}
+
+/* Inside hero-container div : search bar and search button */
 .searchbar {
   display: flex;
   justify-content: center;
-  /* background-color: blue; */
   width: 95vw;
 }
+.autocomplete {
+  background-color: #fff;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: var(--violet);
+}
 
-.hero-container form button {
+.hero__container form button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,14 +60,7 @@
   font-size: 26px;
   padding: 0 6px;
 }
-.wave {
-  background-image: url("https://res.cloudinary.com/deby3jois/image/upload/v1642599098/cld-sample.jpg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  height: 220px;
-  width: 100%;
-}
+
 /* 
 .wave:before {
   content: "";
@@ -62,24 +87,3 @@
   left: 0;
   bottom: -40px;
 } */
-
-.hero-container h2 {
-  font-size: 2.25rem;
-  color: white;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.85);
-  line-height: 2.5rem;
-  text-align: center;
-  margin-bottom: 1.25rem;
-}
-
-.hero-container input {
-  padding: 16px 64px 16px 12px;
-  font-weight: 700;
-}
-
-/*  autocomplete */
-.autocomplete {
-  background-color: #fff;
-  border-radius: 10px;
-  color: var(--violet);
-}

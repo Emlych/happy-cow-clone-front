@@ -3,7 +3,7 @@ import restaurantData from "../assets/data/restaurants.json";
 
 //Import components
 import SearchHero from "../Components/searchHero/SearchHero";
-import HomeCard from "../Components/homeCard/HomeCard";
+import HomeSection from "../Components/homeSection/HomeSection";
 
 //Import icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,15 +23,14 @@ const Home = () => {
   return (
     <div className="home">
       <SearchHero restaurantArr={restaurantArr} />
+      <HomeSection restaurantData={restaurantData} title="Vegan Food Near Me" />
+      <HomeSection
+        restaurantData={restaurantData}
+        title="10 Best Vegan Restaurants in Paris, France"
+      />
+
       <section>
-        <h2>Vegan Food Near Me</h2>
-
-        <div className="caroussel">
-          {restaurantData.slice(0, 10).map((item, index) => {
-            return <HomeCard key={item.placeId} item={item} index={index} />;
-          })}
-        </div>
-
+        <h2>Top Vegan Friendly Cities</h2>
         <div>
           View all
           <FontAwesomeIcon icon={faGreaterThan} />
