@@ -27,46 +27,47 @@ function SearchHero({ restaurantArr }) {
       alert("Sorry, no results found for this restaurant.");
     }
   };
-  const StyledAutocomplete = styled(Autocomplete)({
-    "& .MuiInputLabel-outlined:not(.MuiInputLabel-shrink)": {
-      // Default transform is "translate(14px, 20px) scale(1)""
-      // This lines up the label with the initial cursor position in the input
-      // after changing its padding-left.
-      transform: "translate(34px, 20px) scale(1);",
-    },
-    "& .MuiAutocomplete-inputRoot": {
-      color: "purple",
-      // This matches the specificity of the default styles at https://github.com/mui-org/material-ui/blob/v4.11.3/packages/material-ui-lab/src/Autocomplete/Autocomplete.js#L90
-      '&[class*="MuiOutlinedInput-root"] .MuiAutocomplete-input:first-child': {
-        // Default left padding is 6px
-        paddingLeft: 26,
-      },
-      "& .MuiOutlinedInput-notchedOutline": {
-        borderColor: "green",
-      },
-      "&:hover .MuiOutlinedInput-notchedOutline": {
-        borderColor: "red",
-      },
-      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-        borderColor: "purple",
-      },
+
+  const StyledTextField = styled(TextField)({
+    "& label, & label.Mui-focused": {
+      color: "rgb(172 172 172)",
+      fontSize: 18,
     },
   });
+
   return (
     <div className="search-hero">
       <div className="hero-container wave">
         <h2>Find Vegan Restaurants Nearby</h2>
-        <form onSubmit={submitSearch}>
-          <StyledAutocomplete
+        <form onSubmit={submitSearch} className="searchbar">
+          <Autocomplete
+            className="autocomplete"
             disablePortal
-            id="combo-box-demo"
+            id="combo-box-search"
             options={restaurantArr}
-            sx={{ width: 300 }}
+            sx={{
+              width: "95%",
+              "& .MuiInputLabel-outlined:not(.MuiInputLabel-shrink)": {
+                transform: "translate(24px, 20px) scale(1);",
+              },
+              "& .MuiAutocomplete-inputRoot": {
+                color: "purple",
+                fontSize: 20,
+              },
+              "& .MuiOutlinedInput-root:hover": {
+                "& > fieldset": {
+                  borderColor: "#7c4ec4",
+                },
+              },
+            }}
             isOptionEqualToValue={(option, value) => option.name === value.name}
             onChange={(event, value) => setSearch(value.name)}
             getOptionLabel={(option) => option.name}
             renderInput={(params) => (
-              <TextField {...params} label="Search for a restaurant name." />
+              <StyledTextField
+                {...params}
+                label="Search for a restaurant name."
+              />
             )}
             renderOption={(props, option) => {
               return (
@@ -77,7 +78,7 @@ function SearchHero({ restaurantArr }) {
             }}
           />
           <button type="submit" className="primary ">
-            <FontAwesomeIcon icon={faSearch} className="primary" />
+            <FontAwesomeIcon icon={faSearch} className="primary search-icon" />
           </button>
         </form>
       </div>

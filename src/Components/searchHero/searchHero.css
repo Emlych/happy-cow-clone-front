@@ -9,6 +9,25 @@
   justify-content: center;
   align-items: center;
 }
+.searchbar {
+  display: flex;
+  justify-content: center;
+  /* background-color: blue; */
+  width: 95vw;
+}
+
+.hero-container form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-icon {
+  width: 50px;
+  font-weight: 700;
+  line-height: 24px;
+  font-size: 26px;
+  padding: 0 6px;
+}
 .wave {
   background-image: url("https://res.cloudinary.com/deby3jois/image/upload/v1642599098/cld-sample.jpg");
   background-size: cover;
@@ -56,4 +75,11 @@
 .hero-container input {
   padding: 16px 64px 16px 12px;
   font-weight: 700;
+}
+
+/*  autocomplete */
+.autocomplete {
+  background-color: #fff;
+  border-radius: 10px;
+  color: var(--violet);
 }
