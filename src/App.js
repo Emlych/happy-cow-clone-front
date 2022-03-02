@@ -13,6 +13,7 @@ import Profile from "./Pages/Profile";
 //import components
 import Header from "./Components/header/Header";
 import Modal from "./Components/modal/Modal";
+import Footer from "./Components/footer/Footer";
 
 function App() {
   //Open-close modal
@@ -39,6 +40,7 @@ function App() {
           <Route path="/reviews/:index" element={<Review />} />
           <Route path="/members/profile" element={<Profile />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

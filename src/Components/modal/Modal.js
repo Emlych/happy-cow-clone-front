@@ -19,6 +19,9 @@ const Modal = ({ toggleModal, setUser }) => {
   const [hiddenPassword, setHiddenPassword] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
+  const urlbase = "https://happy-cow-eld.herokuapp.com";
+  // http://localhost:4000
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (signupModal) {
@@ -28,10 +31,11 @@ const Modal = ({ toggleModal, setUser }) => {
           if (!username || !email || !password) {
             setErrorMessage("Missing field(s)");
           } else {
-            const response = await axios.post(
-              "http://localhost:4000/user/signup",
-              { email: email, username: username, password: password }
-            );
+            const response = await axios.post(`${urlbase}/user/signup`, {
+              email: email,
+              username: username,
+              password: password,
+            });
             console.log(response);
             if (response.data.newUser.token) {
               setUser(response.data.newUser.token);
@@ -48,13 +52,10 @@ const Modal = ({ toggleModal, setUser }) => {
       console.log("You want to login !");
       const fetchData = async () => {
         try {
-          const response = await axios.post(
-            "http://localhost:4000/user/login",
-            {
-              email: email,
-              password: password,
-            }
-          );
+          const response = await axios.post(`${urlbase}/user/login`, {
+            email: email,
+            password: password,
+          });
           console.log("response here ==>", response);
           if (response.data.searchedUser.token) {
             setUser(response.data.searchedUser.token);

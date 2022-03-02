@@ -47,6 +47,12 @@
   color: var(--redlike);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.homecard .card__icon > div:last-child:hover {
+  background-color: var(--redlike);
+  color: white;
+  cursor: pointer;
+  transition: 0.4s;
+}
 
 .card__name {
   display: flex;
