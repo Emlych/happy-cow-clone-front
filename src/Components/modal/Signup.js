@@ -12,6 +12,7 @@ const SignUp = ({
   setPassword,
   hiddenPassword,
   setHiddenPassword,
+  errorMessage,
 }) => {
   return (
     <form onSubmit={handleSubmit}>
@@ -51,6 +52,8 @@ const SignUp = ({
           onChange={(event) => setPassword(event.target.value)}
         />
       </div>
+
+      <p className="warning">{errorMessage}</p>
 
       <input type="submit" value="Next" className="primary btn submit" />
     </form>

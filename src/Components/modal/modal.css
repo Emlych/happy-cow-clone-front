@@ -176,3 +176,8 @@
   color: var(--lightgrey);
   font-size: 13px;
 }
+.modal .warning {
+  color: red;
+  font-size: 15px;
+  padding-top: 10px;
+}

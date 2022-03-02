@@ -7,10 +7,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 // import ReactCSSTransition from "react-transition-group";
 
-const Header = ({ toggleModal }) => {
+const Header = ({ toggleModal, token, setUser }) => {
   const [openBurger, setopenBurger] = useState(false);
   const openBurgerMenu = () => {
     setopenBurger(!openBurger);
+  };
+  const disconnect = () => {
+    setUser(null);
   };
   return (
     <div className="header">
@@ -35,9 +38,15 @@ const Header = ({ toggleModal }) => {
         <div className="right">
           <FontAwesomeIcon icon={faSearch} className="primary-opposite" />
           <button className="primary-opposite">Add Listing</button>
-          <button className="primary" onClick={toggleModal}>
-            Login / Join
-          </button>
+          {!token ? (
+            <button className="primary" onClick={toggleModal}>
+              Login / Join
+            </button>
+          ) : (
+            <div>
+              <button onClick={disconnect}>Disconnect</button>
+            </div>
+          )}
         </div>
       </div>
       <div className="smallscreen">

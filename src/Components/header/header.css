@@ -11,12 +11,12 @@
 }
 
 /* For big screen */
-@media (min-width: 1025px) {
+@media (min-width: 1350px) {
   .smallscreen {
     display: none;
   }
   .header .bigscreen {
-    padding: 0.8rem 0.5rem;
+    padding: 0.8rem 1.2rem;
   }
   .header .bigscreen,
   .header .bigscreen ul {
@@ -26,20 +26,30 @@
   }
   .header .bigscreen ul > li {
     font-weight: 700;
-    padding: 0 0.5rem;
+    font-size: 20px;
+    padding-left: 22px;
     color: var(--lightgrey);
   }
   .header .bigscreen ul > li:hover {
     color: var(--darkgreyNav);
     cursor: pointer;
   }
-  .right + button {
-    border: 1px solid red;
+  .header .right {
+    font-size: 30px;
+  }
+  .header .right > button {
+    font-size: 20px;
+    padding: 12px 8px;
+    margin-left: 12px;
+  }
+  .header .right > button:nth-child(2) {
+    background-color: white;
+    border: 1px solid var(--violet);
   }
 }
 
 /* For small screen */
-@media (max-width: 1024px) {
+@media (max-width: 1350px) {
   .header .bigscreen {
     display: none;
   }
@@ -54,15 +64,16 @@
     font-size: 24px;
     color: var(--lightgrey);
   }
-  .fa-magnifying-glass {
-    font-size: 24px;
-    margin-right: 12px;
-  }
-  /* button {
-    padding: 0.25rem 0.5rem;
-  } */
   .no-btn {
     background: none;
     width: 45px;
+  }
+  .header .right {
+    font-size: 30px;
+  }
+  .header .right > button {
+    font-size: 20px;
+    padding: 12px 8px;
+    margin-left: 20px;
   }
 }

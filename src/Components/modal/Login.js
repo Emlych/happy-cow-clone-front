@@ -5,8 +5,8 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 const Login = ({
   handleSubmit,
-  username,
-  setUsername,
+  email,
+  setEmail,
   password,
   setPassword,
   hiddenPassword,
@@ -20,8 +20,8 @@ const Login = ({
         name="usernameOrEmail"
         placeholder="Username or Email"
         required=""
-        value={username}
-        onChange={(event) => setUsername(event.target.value)}
+        value={email}
+        onChange={(event) => setEmail(event.target.value)}
       />
 
       <label htmlFor="password">Password</label>

@@ -9,19 +9,63 @@ import {
   faApple,
 } from "@fortawesome/free-brands-svg-icons";
 import whiteLogo from "../../assets/img/hc-logo-white.png";
+import axios from "axios";
 
-const Modal = ({ toggleModal }) => {
+const Modal = ({ toggleModal, setUser }) => {
   const [signupModal, setSignupModal] = useState(true);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [hiddenPassword, setHiddenPassword] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     if (signupModal) {
-      alert("You want to create a new account !");
+      console.log("You want to create a new account !");
+      const fetchData = async () => {
+        try {
+          if (!username || !email || !password) {
+            setErrorMessage("Missing field(s)");
+          } else {
+            const response = await axios.post(
+              "http://localhost:4000/user/signup",
+              { email: email, username: username, password: password }
+            );
+            console.log(response);
+            if (response.data.newUser.token) {
+              setUser(response.data.newUser.token);
+              toggleModal();
+            }
+          }
+        } catch (error) {
+          console.log("error message ==>", error.message);
+          console.log("error response ==>", error.response);
+        }
+      };
+      fetchData();
     } else {
-      alert("You want to login !");
+      console.log("You want to login !");
+      const fetchData = async () => {
+        try {
+          const response = await axios.post(
+            "http://localhost:4000/user/login",
+            {
+              email: email,
+              password: password,
+            }
+          );
+          console.log("response here ==>", response);
+          if (response.data.searchedUser.token) {
+            setUser(response.data.searchedUser.token);
+            toggleModal();
+          }
+        } catch (error) {
+          console.log("error message ==>", error.message);
+          console.log("error response ==>", error.response);
+        }
+      };
+      fetchData();
     }
   };
 
@@ -87,16 +131,18 @@ const Modal = ({ toggleModal }) => {
               setPassword={setPassword}
               hiddenPassword={hiddenPassword}
               setHiddenPassword={setHiddenPassword}
+              errorMessage={errorMessage}
             />
           ) : (
             <Login
               handleSubmit={handleSubmit}
-              username={username}
-              setUsername={setUsername}
+              email={email}
+              setEmail={setEmail}
               password={password}
               setPassword={setPassword}
               hiddenPassword={hiddenPassword}
               setHiddenPassword={setHiddenPassword}
+              errorMessage={errorMessage}
             />
           )}
         </div>
