@@ -24,7 +24,7 @@ function HomeCard({ item, index }) {
     console.log(isFavorite);
     setIsFavorite(!isFavorite);
 
-    const fetchData = async () => {
+    const addFavorite = async () => {
       try {
         console.log("item that I wish to send ==>", item);
         const response = await axios.post(`${urlbase}/favorite/add`, item, {
@@ -36,11 +36,25 @@ function HomeCard({ item, index }) {
         console.log("error response ==>", error.response);
       }
     };
+    const deleteFavorite = async () => {
+      try {
+        console.log("item that I wish to delete ==>", item);
+        const response = await axios.delete(`${urlbase}/favorite/delete`, {
+          headers: { Authorization: `Bearer ${Cookies.get("userToken")}` },
+          data: item,
+        });
+        console.log("my response ==>", response);
+      } catch (error) {
+        console.log("error message ==>", error.message);
+        console.log("error response ==>", error.response);
+      }
+    };
     if (isFavorite === true) {
       console.log("add this ", item.name, " to my database.");
-      fetchData();
+      addFavorite();
     } else {
-      console.log("still have to handle the delete route in my bac");
+      console.log("still have to handle the delete route in my back");
+      deleteFavorite();
     }
   };
   return (

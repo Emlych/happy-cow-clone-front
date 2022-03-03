@@ -61,7 +61,6 @@
   padding: 0 6px;
 }
 
-/* 
 .wave:before {
   content: "";
   display: block;
@@ -74,9 +73,9 @@
   background-size: auto;
   right: 0;
   bottom: -30px;
-} */
+}
 
-/* .wave:after {
+.wave:after {
   content: "";
   display: block;
   position: absolute;
@@ -86,4 +85,4 @@
   background-color: white;
   left: 0;
   bottom: -40px;
-} */
+}
