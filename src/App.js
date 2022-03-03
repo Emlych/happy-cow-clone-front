@@ -48,7 +48,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/reviews/:index" element={<Review />} />
-          <Route path="/members/profile" element={<Profile name={name} />} />
+          <Route
+            path="/members/profile"
+            element={<Profile name={name} token={token} />}
+          />
         </Routes>
         <Footer />
       </Router>
