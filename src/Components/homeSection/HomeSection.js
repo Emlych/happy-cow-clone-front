@@ -7,7 +7,7 @@ import HomeCard from "../homeCard/HomeCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan } from "@fortawesome/free-solid-svg-icons";
 
-const HomeSection = ({ title, restaurantData }) => {
+const HomeSection = ({ title, restaurantData, token }) => {
   return (
     <section className="homesection">
       <div className="homesection__smallscreen">
@@ -36,7 +36,14 @@ const HomeSection = ({ title, restaurantData }) => {
 
         <div className="caroussel">
           {restaurantData.slice(0, 10).map((item, index) => {
-            return <HomeCard key={item.placeId} item={item} index={index} />;
+            return (
+              <HomeCard
+                key={item.placeId}
+                item={item}
+                index={index}
+                token={token}
+              />
+            );
           })}
         </div>
       </div>

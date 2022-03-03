@@ -28,7 +28,6 @@
 }
 .homecard .card__icon > div:nth-child(2) {
   color: var(--redlike);
-
   position: absolute;
   top: 25px;
   left: -22px;
@@ -54,8 +53,9 @@
   transition: 0.4s;
 }
 .favActive {
-  background-color: black;
-  color: var(--redlike);
+  background-color: green;
+  color: pink;
+  transition: 0.4s;
 }
 
 .card__name {

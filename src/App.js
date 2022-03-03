@@ -46,7 +46,7 @@ function App() {
         />
         {isModal ? <Modal toggleModal={toggleModal} setUser={setUser} /> : null}
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home token={token} />} />
           <Route path="/reviews/:index" element={<Review />} />
           <Route
             path="/members/profile"

@@ -8,9 +8,41 @@ import veganTag from "../../assets/img/category_vegan.svg";
 import vegStoreTag from "../../assets/img/category_veg-store.svg";
 import ratingStars from "../../utils/ratingstars";
 
+//Handle favorites with back
+import axios from "axios";
+import Cookies from "js-cookie";
+
 function HomeCard({ item, index }) {
   const address = item.address.split(",");
   const [isFavorite, setIsFavorite] = useState(false);
+  // // console.log("my item ", item.name, " is favorite", isFavorite);
+
+  //Add or delete favorites
+  // const urlbase = "https://happy-cow-eld.herokuapp.com";
+  const urlbase = "http://localhost:4000";
+  const handleFavorite = () => {
+    console.log(isFavorite);
+    setIsFavorite(!isFavorite);
+
+    const fetchData = async () => {
+      try {
+        console.log("item that I wish to send ==>", item);
+        const response = await axios.post(`${urlbase}/favorite/add`, item, {
+          headers: { authorization: `Bearer ${Cookies.get("userToken")}` },
+        });
+        console.log("my response ==>", response);
+      } catch (error) {
+        console.log("error message ==>", error.message);
+        console.log("error response ==>", error.response);
+      }
+    };
+    if (isFavorite === true) {
+      console.log("add this ", item.name, " to my database.");
+      fetchData();
+    } else {
+      console.log("still have to handle the delete route in my bac");
+    }
+  };
   return (
     <div className="homecard">
       <div>
@@ -29,12 +61,8 @@ function HomeCard({ item, index }) {
           <div>
             <FontAwesomeIcon icon={faBookmark} />
           </div>
-          <div>
-            <FontAwesomeIcon
-              icon={faHeart}
-              onClick={() => setIsFavorite(!isFavorite)}
-              className={isFavorite ? "favActive" : "favDisabled"}
-            />
+          <div className={isFavorite ? "favActive" : "favDisabled"}>
+            <FontAwesomeIcon icon={faHeart} onClick={handleFavorite} />
           </div>
         </div>
       </div>

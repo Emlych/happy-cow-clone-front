@@ -19,12 +19,9 @@ const Profile = ({ name, token }) => {
           // `${urlbase}/favorites/?userToken=${token}`,
           `${urlbase}/favorites`,
           {
-            headers: {
-              authorization: `Bearer ${token}`,
-            },
+            headers: { authorization: `Bearer ${token}` },
           }
         );
-        console.log("response here ==>", response.data.favorites);
         setFavorites(response.data.favorites);
         setIsLoading(false);
       } catch (error) {
