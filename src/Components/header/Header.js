@@ -1,19 +1,35 @@
 import "./header.css";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+
+//import components
 import CollapseNav from "../collapseNav/CollapseNav";
+import CollapseProfile from "../collapseProfile/CollapseProfile";
+
+//import pictures
 import logo from "../../assets/img/logo.svg";
+import avatar from "../../assets/img/nobody.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSearch,
+  faBars,
+  faXmark,
+  faChevronDown,
+} from "@fortawesome/free-solid-svg-icons";
 // import ReactCSSTransition from "react-transition-group";
 
-const Header = ({ toggleModal, token, setUser }) => {
+const Header = ({ toggleModal, token, setUser, name }) => {
+  console.log("my name is ", name);
+  //open burger menu
   const [openBurger, setopenBurger] = useState(false);
   const openBurgerMenu = () => {
     setopenBurger(!openBurger);
   };
-  const disconnect = () => {
-    setUser(null);
+
+  //open profile menu
+  const [openProfile, setOpenProfile] = useState(false);
+  const openProfileMenu = () => {
+    setOpenProfile(!openProfile);
   };
   return (
     <div className="header">
@@ -43,8 +59,12 @@ const Header = ({ toggleModal, token, setUser }) => {
               Login / Join
             </button>
           ) : (
-            <div>
-              <button onClick={disconnect}>Disconnect</button>
+            <div className="profile-menu">
+              <button onClick={openProfileMenu} className="profile-btn">
+                <img src={avatar} alt="cow pic on green background" /> {name}
+                <FontAwesomeIcon icon={faChevronDown} className="icon" />
+              </button>
+              {openProfile && <CollapseProfile setUser={setUser} />}
             </div>
           )}
         </div>
@@ -65,9 +85,16 @@ const Header = ({ toggleModal, token, setUser }) => {
           </div>
           <div className="right">
             <FontAwesomeIcon icon={faSearch} className="primary-opposite" />
-            <button className="primary" onClick={toggleModal}>
-              Login / Join
-            </button>
+            {!token ? (
+              <button className="primary" onClick={toggleModal}>
+                Login / Join
+              </button>
+            ) : (
+              <div className="profile-menu" onClick={openProfileMenu}>
+                <img src={avatar} alt="cow pic on green background" />
+              </div>
+            )}
+            {token && openProfile && <CollapseProfile setUser={setUser} />}
           </div>
         </div>
         {openBurger && (

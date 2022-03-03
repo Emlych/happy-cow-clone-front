@@ -24,13 +24,13 @@
     justify-content: space-between;
     align-items: center;
   }
-  .header .bigscreen ul > li {
+  .header ul > li {
     font-weight: 700;
     font-size: 20px;
     padding-left: 22px;
     color: var(--lightgrey);
   }
-  .header .bigscreen ul > li:hover {
+  .header ul > li:hover {
     color: var(--darkgreyNav);
     cursor: pointer;
   }
@@ -46,6 +46,27 @@
     background-color: white;
     border: 1px solid var(--violet);
   }
+  /* Profile button when activated */
+
+  .profile-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-size: 22px;
+    margin-left: 15px;
+  }
+  .profile-btn img {
+    width: 40px;
+    border: 1px solid var(--lightgrey);
+    border-radius: 25px;
+    padding: 3px;
+    margin-right: 12px;
+  }
+  .profile-btn > .icon {
+    padding-left: 10px;
+    font-size: 18px;
+  }
 }
 
 /* For small screen */
@@ -57,7 +78,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 0.5rem;
+    padding: 0.5rem 0.5rem;
   }
   .fa-bars,
   .fa-xmark {
@@ -75,5 +96,12 @@
     font-size: 20px;
     padding: 12px 8px;
     margin-left: 20px;
+  }
+  .profile-menu img {
+    width: 40px;
+    border: 1px solid var(--lightgrey);
+    border-radius: 25px;
+    padding: 3px;
+    margin-left: 12px;
   }
 }

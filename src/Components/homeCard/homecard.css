@@ -53,6 +53,10 @@
   cursor: pointer;
   transition: 0.4s;
 }
+.favActive {
+  background-color: black;
+  color: var(--redlike);
+}
 
 .card__name {
   display: flex;

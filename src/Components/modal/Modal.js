@@ -19,8 +19,8 @@ const Modal = ({ toggleModal, setUser }) => {
   const [hiddenPassword, setHiddenPassword] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const urlbase = "https://happy-cow-eld.herokuapp.com";
-  // http://localhost:4000
+  // const urlbase = "https://happy-cow-eld.herokuapp.com";
+  const urlbase = "http://localhost:4000";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,9 +36,12 @@ const Modal = ({ toggleModal, setUser }) => {
               username: username,
               password: password,
             });
-            console.log(response);
+            console.log(response.data.newUser);
             if (response.data.newUser.token) {
-              setUser(response.data.newUser.token);
+              setUser(
+                response.data.newUser.token,
+                response.data.newUser.username
+              );
               toggleModal();
             }
           }
@@ -58,7 +61,11 @@ const Modal = ({ toggleModal, setUser }) => {
           });
           console.log("response here ==>", response);
           if (response.data.searchedUser.token) {
-            setUser(response.data.searchedUser.token);
+            setUser(
+              response.data.searchedUser.token,
+              response.data.searchedUser.username
+            );
+
             toggleModal();
           }
         } catch (error) {

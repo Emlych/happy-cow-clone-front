@@ -1,0 +1,34 @@
+.collapse-profile > div {
+  padding: 5px 0 1px;
+}
+.collapse-profile .link {
+  text-decoration: none;
+}
+.collapse-profile > div:hover {
+  cursor: pointer;
+}
+@media (min-width: 1350px) {
+  .collapse-profile {
+    margin-top: 10px;
+    background-color: var(--violet);
+    color: white;
+    position: fixed;
+    z-index: 65;
+    font-size: 20px;
+    padding: 5px 10px 10px;
+    width: 12%;
+  }
+}
+
+@media (max-width: 1350px) {
+  .collapse-profile {
+    margin-top: 150px;
+    width: 40%;
+    background-color: var(--violet);
+    color: white;
+    position: fixed;
+    z-index: 65;
+    font-size: 20px;
+    padding: 5px 10px 10px;
+  }
+}

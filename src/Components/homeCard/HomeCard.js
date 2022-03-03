@@ -1,4 +1,5 @@
 import "./homecard.css";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faBookmark } from "@fortawesome/free-solid-svg-icons";
@@ -9,7 +10,7 @@ import ratingStars from "../../utils/ratingstars";
 
 function HomeCard({ item, index }) {
   const address = item.address.split(",");
-
+  const [isFavorite, setIsFavorite] = useState(false);
   return (
     <div className="homecard">
       <div>
@@ -29,7 +30,11 @@ function HomeCard({ item, index }) {
             <FontAwesomeIcon icon={faBookmark} />
           </div>
           <div>
-            <FontAwesomeIcon icon={faHeart} />
+            <FontAwesomeIcon
+              icon={faHeart}
+              onClick={() => setIsFavorite(!isFavorite)}
+              className={isFavorite ? "favActive" : "favDisabled"}
+            />
           </div>
         </div>
       </div>

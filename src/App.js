@@ -22,23 +22,33 @@ function App() {
     setIsModal(!isModal);
   };
 
-  //Cookies and navigation
+  //Cookies, navigation and get user name
   const [token, setToken] = useState(Cookies.get("userToken") || null);
-  const setUser = (token) => {
+  const [name, setName] = useState(Cookies.get("userNameToken") || null);
+  const setUser = (token, name) => {
     token
       ? Cookies.set("userToken", token, { expires: 3 })
       : Cookies.remove("userToken");
     setToken(token);
+    name
+      ? Cookies.set("userNameToken", name, { expires: 3 })
+      : Cookies.remove("userNameToken");
+    setName(name);
   };
   return (
     <div className="app">
       <Router>
-        <Header toggleModal={toggleModal} token={token} setUser={setUser} />
+        <Header
+          toggleModal={toggleModal}
+          token={token}
+          setUser={setUser}
+          name={name}
+        />
         {isModal ? <Modal toggleModal={toggleModal} setUser={setUser} /> : null}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/reviews/:index" element={<Review />} />
-          <Route path="/members/profile" element={<Profile />} />
+          <Route path="/members/profile" element={<Profile name={name} />} />
         </Routes>
         <Footer />
       </Router>
