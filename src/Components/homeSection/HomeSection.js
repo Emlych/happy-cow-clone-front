@@ -7,7 +7,7 @@ import HomeCard from "../homeCard/HomeCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan } from "@fortawesome/free-solid-svg-icons";
 
-const HomeSection = ({ title, restaurantData, token }) => {
+const HomeSection = ({ title, restaurantData, toggleModal }) => {
   return (
     <section className="homesection">
       <div className="homesection__smallscreen">
@@ -41,7 +41,7 @@ const HomeSection = ({ title, restaurantData, token }) => {
                 key={item.placeId}
                 item={item}
                 index={index}
-                token={token}
+                toggleModal={toggleModal}
               />
             );
           })}

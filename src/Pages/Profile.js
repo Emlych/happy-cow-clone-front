@@ -1,5 +1,7 @@
 import avatar from "../assets/img/nobody.svg";
 import { useState, useEffect } from "react";
+//Import restaurant data
+import restaurantData from "../assets/data/restaurants.json";
 import axios from "axios";
 import HomeCard from "../Components/homeCard/HomeCard";
 //Contains : edit profil picture
@@ -12,17 +14,23 @@ const Profile = ({ name, token }) => {
   // const urlbase = "https://happy-cow-eld.herokuapp.com";
   const urlbase = "http://localhost:4000";
 
+  //get array of favorite places per placeId
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          // `${urlbase}/favorites/?userToken=${token}`,
-          `${urlbase}/favorites`,
-          {
-            headers: { authorization: `Bearer ${token}` },
-          }
-        );
-        setFavorites(response.data.favorites);
+        const response = await axios.get(`${urlbase}/favorites`, {
+          headers: { authorization: `Bearer ${token}` },
+        });
+        console.log("response ==>", response.data.favorites);
+        // filter restaurantData to display only those with same placeId than favorites
+        const favoriteRestaurants = restaurantData.filter((element) => {
+          return response.data.favorites.some((item) => {
+            return item === element.placeId;
+          });
+        });
+        console.log("favorite restaurants : ", favoriteRestaurants);
+        setFavorites(favoriteRestaurants);
+
         setIsLoading(false);
       } catch (error) {
         console.log("error message ==>", error.message);
@@ -31,7 +39,7 @@ const Profile = ({ name, token }) => {
     };
     fetchData();
   }, [token]);
-
+  console.log(favorites);
   return (
     <div className="profile">
       <div>
