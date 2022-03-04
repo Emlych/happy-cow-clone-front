@@ -33,8 +33,15 @@ function HomeCard({
   useEffect(() => {
     if (favorites && token) {
       if (favorites.includes(item.placeId)) setIsFav(!isFav);
-      console.log("favorite in HomeCard : ", favorites);
-      console.log("favorite fav status in HomeCard : ", isFav);
+      console.log(
+        "favorite in HomeCard : ",
+        favorites,
+        "place id ",
+        item.placeId,
+
+        "is Fav state : ",
+        isFav
+      );
     }
   }, [favorites]);
 
