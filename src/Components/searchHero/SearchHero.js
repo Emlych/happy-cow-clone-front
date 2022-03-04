@@ -84,8 +84,8 @@ function SearchHero({ restaurantArr }) {
       </div>
       <div className="hero__comment">Photo Not By Rustic Vegan</div>
       <div className="container">
-        <svg viewBox="0 70 500 60" preserveAspectRatio="none">
-          <path d="M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z"></path>
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+          <path d="M-0.00,49.87 C161.39,234.83 299.10,-73.35 500.00,49.87 L500.00,149.67 L-0.00,149.67 Z"></path>
         </svg>
       </div>
     </div>

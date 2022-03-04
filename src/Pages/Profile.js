@@ -13,8 +13,8 @@ const Profile = ({ name, token }) => {
   const [favorites, setFavorites] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // const urlbase = "https://happy-cow-eld.herokuapp.com";
-  const urlbase = "http://localhost:4000";
+  const urlbase = "https://happy-cow-eld.herokuapp.com";
+  //const urlbase = "http://localhost:4000";
 
   //get array of favorite places per placeId
   useEffect(() => {
@@ -56,8 +56,6 @@ const Profile = ({ name, token }) => {
             {favoritesArr.map((item, index) => {
               return (
                 <div key={index}>
-                  {/* passer un "index" différent de celui ligne 56 pour navigate
-                  Cet index doit correspondre à celui de restaurantData pour le placeId correspondant. */}
                   <HomeCard item={item} favorites={favorites} />
                 </div>
               );

@@ -30,7 +30,6 @@ const ReviewContent = ({ reviewData }) => {
 
   //description data
   const description = reviewData.description;
-  const schedule = description.substring(description.indexOf("Open"));
 
   //Map
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -49,7 +48,9 @@ const ReviewContent = ({ reviewData }) => {
                 <FontAwesomeIcon icon={faClock} className="icon" />
                 <div>
                   <div className="infos--type">OPEN OR CLOSED</div>
-                  {schedule}
+                  {description
+                    ? description.substring(description.indexOf("Open"))
+                    : null}
                 </div>
               </div>
               <div>
@@ -67,7 +68,9 @@ const ReviewContent = ({ reviewData }) => {
                 </div>
               </div>
             </div>
-            <div className="review__description">{description}</div>
+            {description ? (
+              <div className="review__description">{description}</div>
+            ) : null}
             <div className="review__buttons">
               <div className="buttons">
                 <button className="primary">
@@ -141,7 +144,9 @@ const ReviewContent = ({ reviewData }) => {
             <FontAwesomeIcon icon={faClock} className="icon" />
             <div>
               <div className="infos--type">OPEN OR CLOSED</div>
-              {schedule}
+              {description
+                ? description.substring(description.indexOf("Open"))
+                : null}
             </div>
           </div>
           <div>
@@ -159,7 +164,9 @@ const ReviewContent = ({ reviewData }) => {
             </div>
           </div>
         </div>
-        <div className="review__description">{description}</div>
+        {description ? (
+          <div className="review__description">{description}</div>
+        ) : null}
         <div className="review__buttons">
           <button className="primary">
             <FontAwesomeIcon icon={faPenToSquare} className="icon" />

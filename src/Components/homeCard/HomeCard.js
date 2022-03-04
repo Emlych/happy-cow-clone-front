@@ -15,8 +15,6 @@ import Cookies from "js-cookie";
 function HomeCard({ item, index, toggleModal, favorites, handleFavorite }) {
   const address = item.address.split(",");
 
-  console.log("item in Home Card ==>", item.placeId);
-
   //Check if this restaurant is favorite
   const [isFav, setIsFav] = useState(false);
   useEffect(() => {
@@ -34,19 +32,16 @@ function HomeCard({ item, index, toggleModal, favorites, handleFavorite }) {
   };
 
   //Get index of restaurant to navigate to the review page
-  // const indexFav = 0;
-  // for (let i = 0; i < restaurantData.length; i++) {
-  //   if (restaurantData[i].placeId === item.placeId)
-  //     indexFav = restaurantData.indexOf();
-  // }
-  // const indexFav = restaurantData.indexOf(item.placeId);
-  console.log("favorite index ==>", indexFav);
+  let indexFav = 0;
+  for (let i = 0; i < restaurantData.length; i++) {
+    if (restaurantData[i].placeId === item.placeId) indexFav = i;
+  }
 
   return (
     <div className="homecard">
       <div>
         {/* Use index so website doesn't have to iterate through whole data to find the object with the review info*/}
-        <Link to={{ pathname: `/reviews/${index}` }}>
+        <Link to={{ pathname: `/reviews/${indexFav}` }}>
           <img
             src={item.thumbnail}
             alt={item.name}

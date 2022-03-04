@@ -11,8 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan } from "@fortawesome/free-solid-svg-icons";
 
 const HomeSection = ({ title, restaurantData, toggleModal }) => {
-  // const urlbase = "https://happy-cow-eld.herokuapp.com";
-  const urlbase = "http://localhost:4000";
+  const urlbase = "https://happy-cow-eld.herokuapp.com";
+  // const urlbase = "http://localhost:4000";
 
   //Fetch list of favorites for registered user (if logged in)
   const [favorites, setFavorites] = useState(null);
