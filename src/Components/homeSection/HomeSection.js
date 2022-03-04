@@ -10,14 +10,13 @@ import HomeCard from "../homeCard/HomeCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan } from "@fortawesome/free-solid-svg-icons";
 
-const HomeSection = ({ title, restaurantData, toggleModal }) => {
-  const urlbase = "https://happy-cow-eld.herokuapp.com";
-  // const urlbase = "http://localhost:4000";
+const HomeSection = ({ title, restaurantData, toggleModal, token }) => {
+  //const urlbase = "https://happy-cow-eld.herokuapp.com";
+  const urlbase = "http://localhost:4000";
 
   //Fetch list of favorites for registered user (if logged in)
   const [favorites, setFavorites] = useState(null);
   useEffect(() => {
-    const token = Cookies.get("userToken");
     const fetchData = async () => {
       try {
         const response = await axios.get(`${urlbase}/favorites`, {
@@ -50,7 +49,7 @@ const HomeSection = ({ title, restaurantData, toggleModal }) => {
     const deleteFavorite = async () => {
       try {
         const response = await axios.delete(`${urlbase}/favorite/delete`, {
-          headers: { Authorization: `Bearer ${Cookies.get("userToken")}` },
+          headers: { Authorization: `Bearer ${token}` },
           data: item,
         });
         console.log("favorite succesfully deleted: ", response.data);
@@ -75,6 +74,7 @@ const HomeSection = ({ title, restaurantData, toggleModal }) => {
                 index={index}
                 toggleModal={toggleModal}
                 handleFavorite={handleFavorite}
+                token={token}
               />
             );
           })}
@@ -105,6 +105,7 @@ const HomeSection = ({ title, restaurantData, toggleModal }) => {
                 toggleModal={toggleModal}
                 favorites={favorites}
                 handleFavorite={handleFavorite}
+                token={token}
               />
             );
           })}

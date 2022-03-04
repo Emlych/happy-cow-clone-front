@@ -15,7 +15,7 @@ import { faGreaterThan } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import calcDistance from "../utils/calcDistance";
 
-const Home = ({ toggleModal }) => {
+const Home = ({ toggleModal, token }) => {
   //Create a new array made only of restaurants' name and placeId, in order to ease research.
   //Set all the items to lowercase.
   let restaurantArr = [];
@@ -75,11 +75,13 @@ const Home = ({ toggleModal }) => {
         restaurantData={filteredRestaurant}
         title="Vegan Food Near Me"
         toggleModal={toggleModal}
+        token={token}
       />
       <HomeSection
         restaurantData={restaurantData}
         title="10 Best Vegan Restaurants in Paris, France"
         toggleModal={toggleModal}
+        token={token}
       />
 
       <section>

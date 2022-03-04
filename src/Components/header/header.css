@@ -41,6 +41,7 @@
     font-size: 20px;
     padding: 12px 8px;
     margin-left: 12px;
+    min-width: 130px;
   }
   .header .right > button:nth-child(2) {
     background-color: white;
@@ -96,6 +97,7 @@
     font-size: 20px;
     padding: 12px 8px;
     margin-left: 20px;
+    min-width: 130px;
   }
   .profile-menu img {
     width: 40px;

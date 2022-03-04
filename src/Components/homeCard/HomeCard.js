@@ -12,14 +12,20 @@ import restaurantData from "../../assets/data/restaurants.json";
 //Handle favorites with back
 import Cookies from "js-cookie";
 
-function HomeCard({ item, index, toggleModal, favorites, handleFavorite }) {
+function HomeCard({
+  item,
+  index,
+  toggleModal,
+  favorites,
+  handleFavorite,
+  token,
+}) {
   const address = item.address.split(",");
 
   //Check if this restaurant is favorite
   const [isFav, setIsFav] = useState(false);
   useEffect(() => {
-    console.log("activage useEffect after new favorites?");
-    const token = Cookies.get("userToken");
+    console.log("activate useEffect after new favorites?");
     if (favorites && token) {
       if (favorites.includes(item.placeId)) setIsFav(!isFav);
     }
@@ -27,7 +33,6 @@ function HomeCard({ item, index, toggleModal, favorites, handleFavorite }) {
 
   //Add or remove restaurant from favorite
   const toggleFavorite = () => {
-    const token = Cookies.get("userToken");
     !token ? toggleModal() : handleFavorite(isFav, item);
   };
 

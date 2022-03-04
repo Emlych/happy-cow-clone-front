@@ -16,7 +16,7 @@ import {
   faXmark,
   faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
-import ReactCSSTransitionGroup from "react-transition-group";
+// import ReactCSSTransitionGroup from "react-transition-group";
 
 const Header = ({ toggleModal, token, setUser, name }) => {
   console.log("my name is ", name);
@@ -99,13 +99,13 @@ const Header = ({ toggleModal, token, setUser, name }) => {
         </div>
         {openBurger && (
           <div className="transition-nav">
-            <ReactCSSTransitionGroup
+            {/* <ReactCSSTransitionGroup
               transitionName="example"
               transitionEnterTimeout={500}
               transitionLeaveTimeout={300}
-            >
-              <CollapseNav />
-            </ReactCSSTransitionGroup>
+            > */}
+            <CollapseNav />
+            {/* </ReactCSSTransitionGroup> */}
           </div>
         )}
       </div>
