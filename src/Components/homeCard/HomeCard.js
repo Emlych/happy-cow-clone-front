@@ -9,9 +9,6 @@ import vegStoreTag from "../../assets/img/category_veg-store.svg";
 import ratingStars from "../../utils/ratingstars";
 import restaurantData from "../../assets/data/restaurants.json";
 
-//Handle favorites with back
-import Cookies from "js-cookie";
-
 function HomeCard({
   item,
   index,
@@ -25,7 +22,7 @@ function HomeCard({
   //Check if this restaurant is favorite
   const [isFav, setIsFav] = useState(false);
   useEffect(() => {
-    console.log("activate useEffect after new favorites?");
+    // console.log("activate useEffect after new favorites?");
     if (favorites && token) {
       if (favorites.includes(item.placeId)) setIsFav(!isFav);
     }

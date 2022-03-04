@@ -11,8 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan } from "@fortawesome/free-solid-svg-icons";
 
 const HomeSection = ({ title, restaurantData, toggleModal, token }) => {
-  const urlbase = "https://happy-cow-eld.herokuapp.com";
-  //const urlbase = "http://localhost:4000";
+  //const urlbase = "https://happy-cow-eld.herokuapp.com";
+  const urlbase = "http://localhost:4000";
 
   //Fetch list of favorites for registered user (if logged in)
   const [favorites, setFavorites] = useState(null);
@@ -32,32 +32,16 @@ const HomeSection = ({ title, restaurantData, toggleModal, token }) => {
   }, []);
 
   //Add or delete favorites when click on hearts
-  const handleFavorite = (isFav, item) => {
+  const handleFavorite = async (isFav, item) => {
     console.log("my item fav is ==>", isFav);
-    //Add favorite in database
-    const addFavorite = async () => {
-      try {
-        const response = await axios.post(`${urlbase}/favorite/add`, item, {
-          headers: { authorization: `Bearer ${Cookies.get("userToken")}` },
-        });
-        console.log("favorite succesfully added: ", response.data);
-      } catch (error) {
-        console.log("error message ==>", error.message);
-      }
-    };
-    //Delete favorite from database
-    const deleteFavorite = async () => {
-      try {
-        const response = await axios.delete(`${urlbase}/favorite/delete`, {
-          headers: { Authorization: `Bearer ${token}` },
-          data: item,
-        });
-        console.log("favorite succesfully deleted: ", response.data);
-      } catch (error) {
-        console.log("error message ==>", error.message);
-      }
-    };
-    !isFav ? addFavorite() : deleteFavorite();
+    try {
+      const response = await axios.post(`${urlbase}/favorite/handle`, item, {
+        headers: { authorization: `Bearer ${Cookies.get("userToken")}` },
+      });
+      console.log("response from handle favorite in back :", response.data);
+    } catch (error) {
+      console.log("error message ==>", error.message);
+    }
   };
 
   return (
