@@ -2,8 +2,15 @@ import "./homecard.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faBookmark } from "@fortawesome/free-solid-svg-icons";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import {
+  faStar,
+  faBookmark,
+  faStarHalfStroke,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faHeart,
+  faStar as emptyStar,
+} from "@fortawesome/free-regular-svg-icons";
 import veganTag from "../../assets/img/category_vegan.svg";
 import vegStoreTag from "../../assets/img/category_veg-store.svg";
 import ratingStars from "../../utils/ratingstars";
@@ -17,6 +24,7 @@ function HomeCard({
   handleFavorite,
   token,
 }) {
+  const rating = ratingStars(item.rating).split("");
   const address = item.address.split(",");
 
   //Check if this restaurant is favorite
@@ -77,7 +85,17 @@ function HomeCard({
       <div className="card__address">
         {address[address.length - 3]}, {address[address.length - 2]}
       </div>
-      <div className="card__ratings">{ratingStars(item.rating)}</div>
+      <div className="card__ratings">
+        {rating.map((item, index) => {
+          return (
+            <div key={index}>
+              {item === "★" && <FontAwesomeIcon icon={faStar} />}
+              {item === "☆" && <FontAwesomeIcon icon={emptyStar} />}
+              {item === "✪" && <FontAwesomeIcon icon={faStarHalfStroke} />}
+            </div>
+          );
+        })}
+      </div>
       <div className="card__description">{item.description}</div>
     </div>
   );
