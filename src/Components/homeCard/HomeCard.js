@@ -1,5 +1,5 @@
 import "./homecard.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faBookmark } from "@fortawesome/free-solid-svg-icons";
@@ -7,56 +7,36 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import veganTag from "../../assets/img/category_vegan.svg";
 import vegStoreTag from "../../assets/img/category_veg-store.svg";
 import ratingStars from "../../utils/ratingstars";
+import restaurantData from "../../assets/data/restaurants.json";
 
 //Handle favorites with back
-import axios from "axios";
 import Cookies from "js-cookie";
 
-function HomeCard({ item, index, toggleModal }) {
+function HomeCard({ item, index, toggleModal, favorites, handleFavorite }) {
   const address = item.address.split(",");
-  const [token, setToken] = useState(Cookies.get("userToken") || null);
 
-  //Add or delete favorites
-  // const urlbase = "https://happy-cow-eld.herokuapp.com";
-  const urlbase = "http://localhost:4000";
+  console.log("item in Home Card ==>", item.placeId);
 
-  const handleFavorite = () => {
-    if (!token) {
-      toggleModal();
+  //Check if this restaurant is favorite
+  const [isFav, setIsFav] = useState(false);
+  useEffect(() => {
+    console.log("activage useEffect after new favorites?");
+    const token = Cookies.get("userToken");
+    if (favorites && token) {
+      if (favorites.includes(item.placeId)) setIsFav(!isFav);
     }
-    // const addFavorite = async () => {
-    //   try {
-    //     console.log("item that I wish to send ==>", item);
-    //     const response = await axios.post(`${urlbase}/favorite/add`, item, {
-    //       headers: { authorization: `Bearer ${Cookies.get("userToken")}` },
-    //     });
-    //     console.log("my response ==>", response);
-    //   } catch (error) {
-    //     console.log("error message ==>", error.message);
-    //     console.log("error response ==>", error.response);
-    //   }
-    // };
-    // const deleteFavorite = async () => {
-    //   try {
-    //     console.log("item that I wish to delete ==>", item);
-    //     const response = await axios.delete(`${urlbase}/favorite/delete`, {
-    //       headers: { Authorization: `Bearer ${Cookies.get("userToken")}` },
-    //       data: item,
-    //     });
-    //     console.log("my response ==>", response);
-    //   } catch (error) {
-    //     console.log("error message ==>", error.message);
-    //     console.log("error response ==>", error.response);
-    //   }
-    // };
-    // if (isFavorite === true) {
-    //   console.log("add this ", item.name, " to my database.");
-    //   addFavorite();
-    // } else {
-    //   console.log("still have to handle the delete route in my back");
-    //   deleteFavorite();
-    // }
+  }, [favorites]);
+
+  //Add or remove restaurant from favorite
+  const toggleFavorite = () => {
+    const token = Cookies.get("userToken");
+    !token ? toggleModal() : handleFavorite(isFav, item);
   };
+
+  //Get index of restaurant to navigate to the review page
+  const indexFav = restaurantData.indexOf(item.placeId);
+  console.log("favorite index ==>", indexFav);
+
   return (
     <div className="homecard">
       <div>
@@ -75,9 +55,8 @@ function HomeCard({ item, index, toggleModal }) {
           <div>
             <FontAwesomeIcon icon={faBookmark} />
           </div>
-          {/* <div className={isFavorite ? "favActive" : "favDisabled"}> */}
-          <div className="favDisabled">
-            <FontAwesomeIcon icon={faHeart} onClick={handleFavorite} />
+          <div className={isFav ? "favActive" : "favDisabled"}>
+            <FontAwesomeIcon icon={faHeart} onClick={toggleFavorite} />
           </div>
         </div>
       </div>

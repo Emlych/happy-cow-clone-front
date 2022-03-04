@@ -1,6 +1,5 @@
 import avatar from "../assets/img/nobody.svg";
 import { useState, useEffect } from "react";
-//Import restaurant data
 import restaurantData from "../assets/data/restaurants.json";
 import axios from "axios";
 import HomeCard from "../Components/homeCard/HomeCard";
@@ -8,6 +7,9 @@ import HomeCard from "../Components/homeCard/HomeCard";
 // photos and reviews of nearby city
 
 const Profile = ({ name, token }) => {
+  //Array of objects containing all name, adress.. data for favorite restaurants
+  const [favoritesArr, setFavoritesArr] = useState(null);
+  //favorites to pass to HomeCard to display red hearts
   const [favorites, setFavorites] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,16 +23,16 @@ const Profile = ({ name, token }) => {
         const response = await axios.get(`${urlbase}/favorites`, {
           headers: { authorization: `Bearer ${token}` },
         });
-        console.log("response ==>", response.data.favorites);
+        // console.log("response ==>", response.data.favorites);
+        setFavorites(response.data.favorites);
         // filter restaurantData to display only those with same placeId than favorites
         const favoriteRestaurants = restaurantData.filter((element) => {
           return response.data.favorites.some((item) => {
             return item === element.placeId;
           });
         });
-        console.log("favorite restaurants : ", favoriteRestaurants);
-        setFavorites(favoriteRestaurants);
-
+        // console.log("favorite restaurants : ", favoriteRestaurants);
+        setFavoritesArr(favoriteRestaurants);
         setIsLoading(false);
       } catch (error) {
         console.log("error message ==>", error.message);
@@ -39,7 +41,6 @@ const Profile = ({ name, token }) => {
     };
     fetchData();
   }, [token]);
-  console.log(favorites);
   return (
     <div className="profile">
       <div>
@@ -52,10 +53,12 @@ const Profile = ({ name, token }) => {
           <span>Favorites are loading</span>
         ) : (
           <div className="caroussel">
-            {favorites.map((item, index) => {
+            {favoritesArr.map((item, index) => {
               return (
                 <div key={index}>
-                  <HomeCard item={item} />
+                  {/* passer un "index" différent de celui ligne 56 pour navigate
+                  Cet index doit correspondre à celui de restaurantData pour le placeId correspondant. */}
+                  <HomeCard item={item} favorites={favorites} />
                 </div>
               );
             })}

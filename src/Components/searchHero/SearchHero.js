@@ -83,7 +83,7 @@ function SearchHero({ restaurantArr }) {
         </form>
       </div>
       <div className="hero__comment">Photo Not By Rustic Vegan</div>
-      <div class="container">
+      <div className="container">
         <svg viewBox="0 70 500 60" preserveAspectRatio="none">
           <path d="M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z"></path>
         </svg>
