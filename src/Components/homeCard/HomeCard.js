@@ -29,10 +29,12 @@ function HomeCard({
 
   //Check if this restaurant is favorite
   const [isFav, setIsFav] = useState(false);
-  console.log("favorite in HomeCard : ", favorites);
+
   useEffect(() => {
     if (favorites && token) {
       if (favorites.includes(item.placeId)) setIsFav(!isFav);
+      console.log("favorite in HomeCard : ", favorites);
+      console.log("favorite fav status in HomeCard : ", isFav);
     }
   }, [favorites]);
 
