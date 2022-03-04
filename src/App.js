@@ -17,8 +17,8 @@ import Footer from "./Components/footer/Footer";
 
 function App() {
   //Change url here
-  //const urlbase = "https://happy-cow-eld.herokuapp.com";
-  const urlbase = "http://localhost:4000";
+  const urlbase = "https://happy-cow-eld.herokuapp.com";
+  //const urlbase = "http://localhost:4000";
 
   //Open-close modal
   const [isModal, setIsModal] = useState(false);
