@@ -43,6 +43,11 @@ const HomeSection = ({
         headers: { authorization: `Bearer ${Cookies.get("userToken")}` },
       });
       console.log("response from handle favorite in back :", response.data);
+      setFavorites(response.data.favorite);
+      console.log(
+        "Here is what i put in favorites state :",
+        response.data.favorite
+      );
     } catch (error) {
       console.log("error message ==>", error.message);
     }
