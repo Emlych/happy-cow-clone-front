@@ -31,7 +31,6 @@ function HomeCard({
   const [isFav, setIsFav] = useState(false);
   console.log("favorite in HomeCard : ", favorites);
   useEffect(() => {
-    // console.log("activate useEffect after new favorites?");
     if (favorites && token) {
       if (favorites.includes(item.placeId)) setIsFav(!isFav);
     }

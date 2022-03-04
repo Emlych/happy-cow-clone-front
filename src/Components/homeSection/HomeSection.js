@@ -42,8 +42,11 @@ const HomeSection = ({
       const response = await axios.post(`${urlbase}/favorite/handle`, item, {
         headers: { authorization: `Bearer ${Cookies.get("userToken")}` },
       });
-      console.log("response from handle favorite in back :", response.data);
-      setFavorites(response.data.favorite);
+      console.log(
+        "response from handle favorite in back :",
+        response.data.targetUser
+      );
+      setFavorites(response.data.targetUser.favorite);
       console.log(
         "Here is what i put in favorites state :",
         response.data.favorite
