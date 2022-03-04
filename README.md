@@ -1,35 +1,25 @@
-# Happy Cow React Clone - front side
+# Clone of Happy Cow website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/contains-17-coffee-cups.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
+Clone from the [Happy Cow website](https://www.happycow.net/) bootstrapped with React Library.
+Uses [backend](https://github.com/Emlych/happy-cow-clone-back) in node.js
 
-## Available Scripts
+## How to read it
 
-In the project directory, you can run:
+Either go on [website](https://happy-cow-clone-eld.netlify.app)
 
-### `yarn start`
+or
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Install the dependencies:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+npm install
 
-### `yarn test`
+Then start with
 
-Launches the test runner in the interactive watch mode.\
+npm start
 
-### `yarn build`
+That's it.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Fabriqué avec
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-### `yarn eject`
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+React

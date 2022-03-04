@@ -25,6 +25,7 @@ const HomeSection = ({
         const response = await axios.get(`${urlbase}/favorites`, {
           headers: { authorization: `Bearer ${token}` },
         });
+        console.log("favorites of : ", response.data.favorites);
         setFavorites(response.data.favorites);
       } catch (error) {
         console.log("error message ==>", error.message);
