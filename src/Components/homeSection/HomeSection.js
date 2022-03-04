@@ -49,7 +49,7 @@ const HomeSection = ({
       setFavorites(response.data.targetUser.favorite);
       console.log(
         "Here is what i put in favorites state :",
-        response.data.favorite
+        response.data.targetUser.favorite
       );
     } catch (error) {
       console.log("error message ==>", error.message);
