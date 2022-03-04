@@ -34,7 +34,12 @@ function HomeCard({ item, index, toggleModal, favorites, handleFavorite }) {
   };
 
   //Get index of restaurant to navigate to the review page
-  const indexFav = restaurantData.indexOf(item.placeId);
+  // const indexFav = 0;
+  // for (let i = 0; i < restaurantData.length; i++) {
+  //   if (restaurantData[i].placeId === item.placeId)
+  //     indexFav = restaurantData.indexOf();
+  // }
+  // const indexFav = restaurantData.indexOf(item.placeId);
   console.log("favorite index ==>", indexFav);
 
   return (
