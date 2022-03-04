@@ -4,6 +4,7 @@
   padding: 10px 0;
   font-weight: 700;
   font-size: 15px;
+  margin-top: 20px;
 }
 .footer > nav > ul > li:hover {
   cursor: pointer;

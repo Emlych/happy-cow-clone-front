@@ -16,6 +16,10 @@ import Modal from "./Components/modal/Modal";
 import Footer from "./Components/footer/Footer";
 
 function App() {
+  //Change url here
+  const urlbase = "https://happy-cow-eld.herokuapp.com";
+  //const urlbase = "http://localhost:4000";
+
   //Open-close modal
   const [isModal, setIsModal] = useState(false);
   const toggleModal = () => {
@@ -44,16 +48,24 @@ function App() {
           setUser={setUser}
           name={name}
         />
-        {isModal ? <Modal toggleModal={toggleModal} setUser={setUser} /> : null}
+        {isModal ? (
+          <Modal
+            toggleModal={toggleModal}
+            setUser={setUser}
+            urlbase={urlbase}
+          />
+        ) : null}
         <Routes>
           <Route
             path="/"
-            element={<Home toggleModal={toggleModal} token={token} />}
+            element={
+              <Home toggleModal={toggleModal} token={token} urlbase={urlbase} />
+            }
           />
           <Route path="/reviews/:index" element={<Review />} />
           <Route
             path="/members/profile"
-            element={<Profile name={name} token={token} />}
+            element={<Profile name={name} token={token} urlbase={urlbase} />}
           />
         </Routes>
         <Footer />

@@ -11,16 +11,13 @@ import {
 import whiteLogo from "../../assets/img/hc-logo-white.png";
 import axios from "axios";
 
-const Modal = ({ toggleModal, setUser }) => {
+const Modal = ({ toggleModal, setUser, urlbase }) => {
   const [signupModal, setSignupModal] = useState(true);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [hiddenPassword, setHiddenPassword] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-
-  //const urlbase = "https://happy-cow-eld.herokuapp.com";
-  const urlbase = "http://localhost:4000";
 
   const handleSubmit = (event) => {
     event.preventDefault();

@@ -6,15 +6,12 @@ import HomeCard from "../Components/homeCard/HomeCard";
 //Contains : edit profil picture
 // photos and reviews of nearby city
 
-const Profile = ({ name, token }) => {
+const Profile = ({ name, token, urlbase }) => {
   //Array of objects containing all name, adress.. data for favorite restaurants
   const [favoritesArr, setFavoritesArr] = useState(null);
   //favorites to pass to HomeCard to display red hearts
   const [favorites, setFavorites] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
-  //const urlbase = "https://happy-cow-eld.herokuapp.com";
-  const urlbase = "http://localhost:4000";
 
   //get array of favorite places per placeId
   useEffect(() => {

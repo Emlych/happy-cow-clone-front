@@ -7,15 +7,11 @@ import restaurantData from "../assets/data/restaurants.json";
 import SearchHero from "../Components/searchHero/SearchHero";
 import HomeSection from "../Components/homeSection/HomeSection";
 
-//Import icons
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGreaterThan } from "@fortawesome/free-solid-svg-icons";
-
 //
 import { useState, useEffect } from "react";
 import calcDistance from "../utils/calcDistance";
 
-const Home = ({ toggleModal, token }) => {
+const Home = ({ toggleModal, token, urlbase }) => {
   //Create a new array made only of restaurants' name and placeId, in order to ease research.
   //Set all the items to lowercase.
   let restaurantArr = [];
@@ -76,21 +72,15 @@ const Home = ({ toggleModal, token }) => {
         title="Vegan Food Near Me"
         toggleModal={toggleModal}
         token={token}
+        urlbase={urlbase}
       />
       <HomeSection
         restaurantData={restaurantData}
         title="10 Best Vegan Restaurants in Paris, France"
         toggleModal={toggleModal}
         token={token}
+        urlbase={urlbase}
       />
-
-      <section>
-        <h2>Top Vegan Friendly Cities</h2>
-        <div>
-          View all
-          <FontAwesomeIcon icon={faGreaterThan} />
-        </div>
-      </section>
     </div>
   );
 };
