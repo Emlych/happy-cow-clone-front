@@ -28,9 +28,11 @@
   margin: 5vh auto;
   border-radius: 25px;
   width: 85%;
+  height: 90vh;
   background-color: #fff;
   display: flex;
   justify-content: space-between;
+  overflow-y: scroll;
 }
 .modal__image {
   width: 45%;
