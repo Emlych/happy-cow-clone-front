@@ -3,7 +3,7 @@
 [<img src="https://img.shields.io/badge/last%20updated-march%202022-yellow">](https://img.shields.io/badge/last%20updated-march%202022-yellow)
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
 
-Responsive - non SPA - clone of the [Happy Cow website](https://www.happycow.net/) bootstrapped with React Library.
+Responsive - non SPA - clone of the [Happy Cow website](https://www.happycow.net/) bootstrapped with React Library. Deployed version available [here](https://happy-cow-clone-eld.netlify.app)
 Connected to a [backend](https://github.com/Emlych/happy-cow-clone-back) developped with node.js.
 
 ⚠️ As it is only a clone, data are not up to date and are localised in Paris and its suburbs.
@@ -35,44 +35,14 @@ Connected to a [backend](https://github.com/Emlych/happy-cow-clone-back) develop
 
 Clone this repository :
 
-### `git clone https://github.com/Emlych/happy-cow-clone-client`
+`git clone https://github.com/Emlych/happy-cow-clone-client`
 
-### `cd happy-cow-clone-clientt`
+`cd happy-cow-clone-clientt`
 
 Install dependencies :
 
-### `yarn add `
+`yarn add `
 
 When installation is complet, run :
 
-### `yarn start`
-
-## Functionnalities
-
-## How to read it
-
-Either go on [website](https://happy-cow-clone-eld.netlify.app)
-
-or
-
-Install the dependencies:
-
-npm install
-
-Then start with
-
-npm start
-
-That's it.
-
-## Fabriqué avec
-
-React
-
-👩‍💻 Technologies and tools used:
-
-    Javascript ES6+
-    Yarn
-    Axios
-    HTML
-    CSS
+`yarn start`
