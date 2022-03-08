@@ -3,7 +3,7 @@
 [<img src="https://img.shields.io/badge/last%20updated-march%202022-yellow">](https://img.shields.io/badge/last%20updated-march%202022-yellow)
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
 
-Responsive - non SPA - clone of the [Happy Cow website](https://www.happycow.net/) bootstrapped with React Library. Deployed version available [here](https://happy-cow-clone-eld.netlify.app)
+Responsive - non SPA - clone of the [Happy Cow website](https://www.happycow.net/) bootstrapped with React Library. Deployed version available [here](https://happy-cow-clone-eld.netlify.app)<br>
 Connected to a [backend](https://github.com/Emlych/happy-cow-clone-back) developped with node.js.
 
 ⚠️ As it is only a clone, data are not up to date and are localised in Paris and its suburbs.
@@ -38,12 +38,12 @@ Clone this repository :
 
 `git clone https://github.com/Emlych/happy-cow-clone-client`
 
-`cd happy-cow-clone-clientt`
+`cd happy-cow-clone-client`
 
 Install dependencies :
 
 `yarn add `
 
-When installation is complet, run :
+When installation is complete, run :
 
 `yarn start`
