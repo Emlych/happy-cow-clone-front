@@ -16,14 +16,7 @@ import vegStoreTag from "../../assets/img/category_veg-store.svg";
 import ratingStars from "../../utils/ratingstars";
 import restaurantData from "../../assets/data/restaurants.json";
 
-function HomeCard({
-  item,
-  index,
-  toggleModal,
-  favorites,
-  handleFavorite,
-  token,
-}) {
+function HomeCard({ item, toggleModal, favorites, handleFavorite, token }) {
   const rating = ratingStars(item.rating).split("");
   const address = item.address.split(",");
 
@@ -32,22 +25,22 @@ function HomeCard({
 
   useEffect(() => {
     if (favorites && token) {
-      if (favorites.includes(item.placeId)) setIsFav(!isFav);
-      console.log(
-        "favorite in HomeCard : ",
-        favorites,
-        "place id ",
-        item.placeId,
-
-        "is Fav state : ",
-        isFav
-      );
+      if (favorites.includes(item.placeId)) {
+        setIsFav(true);
+      } else {
+        setIsFav(false);
+      }
     }
   }, [favorites]);
 
   //Add or remove restaurant from favorite
   const toggleFavorite = () => {
-    !token ? toggleModal() : handleFavorite(isFav, item);
+    if (!token) {
+      toggleModal();
+    } else {
+      handleFavorite(isFav, item);
+      // setIsFav(!isFav);
+    }
   };
 
   //Get index of restaurant to navigate to the review page

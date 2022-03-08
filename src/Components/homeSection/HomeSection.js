@@ -25,7 +25,6 @@ const HomeSection = ({
         const response = await axios.get(`${urlbase}/favorites`, {
           headers: { authorization: `Bearer ${token}` },
         });
-        console.log("favorites of : ", response.data.favorites);
         setFavorites(response.data.favorites);
       } catch (error) {
         console.log("error message ==>", error.message);
@@ -42,15 +41,7 @@ const HomeSection = ({
       const response = await axios.post(`${urlbase}/favorite/handle`, item, {
         headers: { authorization: `Bearer ${Cookies.get("userToken")}` },
       });
-      console.log(
-        "response from handle favorite in back :",
-        response.data.targetUser
-      );
       setFavorites(response.data.targetUser.favorite);
-      console.log(
-        "Here is what i put in favorites state :",
-        response.data.targetUser.favorite
-      );
     } catch (error) {
       console.log("error message ==>", error.message);
     }
@@ -71,6 +62,7 @@ const HomeSection = ({
                 toggleModal={toggleModal}
                 handleFavorite={handleFavorite}
                 token={token}
+                favorites={favorites}
               />
             );
           })}
