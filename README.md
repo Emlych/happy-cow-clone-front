@@ -30,6 +30,7 @@ Connected to a [backend](https://github.com/Emlych/happy-cow-clone-back) develop
 
 - Implement conversion of latitude and longitude into web Mercator with [arcgis webMercatorUtils](https://developers.arcgis.com/javascript/3/jsapi/esri.geometry.webmercatorutils-amd.html)
 - Page that displays a given number of restaurants surrounding the researched one
+- Display "all" restaurants and go through them with pagination
 
 ## How to install and run the project
 
